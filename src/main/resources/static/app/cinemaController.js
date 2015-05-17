@@ -14,7 +14,7 @@ function cinemaController(cinemaService,LxNotificationService) {
 	vm.cinemas = [];
 	/*vm.nuevo = function(name){
 		vm.name = name;
-	}*/
+	}*/	
 	
 	vm.movies = cinemaService.getMovies();
 	vm.cinemas = cinemaService.getCinemas();

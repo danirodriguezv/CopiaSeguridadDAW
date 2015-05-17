@@ -6,9 +6,12 @@
 	
 	
 	<!-- lumX -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="bower_components/lumx/dist/lumx.css">
 		<link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+		<link rel="stylesheet" href="./css/styles.css">
 		
 		<script src="bower_components/jquery/dist/jquery.js"></script>
 		<script src="bower_components/velocity/velocity.js"></script>
@@ -22,30 +25,31 @@
 	<!-- lumX -->
 	
 	<script src="./app/app.js"></script>
-	<script src="./app/controller.js"></script>
-	<script src="./app/blogService.js"></script>	
+	<script src="./app/cinemaController.js"></script>
+	<script src="./app/cinemaService.js"></script>	
+	<script src="./app/routeconfig.js"></script>	
+	<script src="./app/adminController.js"></script>	
 	
 </head>
-<body ng-app="app" ng-controller="Controller as vm">
+<body ng-app="app">
+	<div ng-view ></div>
 	
 	
-	
-	
-	<div class="toolbar bgc-light-blue-600 tc-white-1">
+<!-- 	<div class="toolbar bgc-light-blue-600 tc-white-1">
         <div class="toolbar__left mr+ ">            
                 <i class="icon icon--l icon--white icon--flat mdi mdi-gamepad-variant "></i>                     
         </div>
 
-        <span class="toolbar__label fs-title"><h1>Blog</h1></span>
+        <span class="toolbar__label fs-title"><h1>DawKine</h1></span>
 		<div class="toolbar__right mr+ " >            
                 <i class="icon icon--l icon--white icon--flat mdi mdi-backup-restore " ></i>                     
         </div>
     </div>	
-
-<div class="content bgc-white">
+--!>
+<!-- <div class="content bgc-white">
 
 	 
-		<form ng-submit="vm.addPost()">
+		<!--  <form ng-submit="vm.addPost()">
 			<div class="grid" >
 				<lx-text-field label="Nombre" fixed-label="true" icon="account">
                 	<input type="text" ng-model="vm.newPost.name">
@@ -63,18 +67,22 @@
 			
 			<button type="submit" class="btn btn--l btn--blue btn--raised mt++ ml++" lx-ripple><i class="mdi mdi-email mr+"></i>Enviar</button>
 			<button type="button" ng-click="vm.notify('simple')">Prueba</button>
-		</form>
-	
+		</form>-->
+	<!-- 
 		<br>
 		<h3>--------------------------------------------------------------</h3>
-		
-		<p ng-repeat="post in vm.posts">
-			<br><span> Nombre: {{post.name}} </span><br>
-			<br><span> Titulo: {{post.title}} </span><br>
-			<br><span> Texto: {{post.text}} </span><br>	
-			<button type="button" ng-click="vm.borrar(post)">Borrar</button>		
+		<p ng-repeat="cinema in vm.cinemas">
+			<br><span> Nombre cine: {{cinema.name}} </span><br>
 				
 		</p>	
-</div> 		
+		
+		
+		<p ng-repeat="movie in vm.movies">
+			<br><span> Nombre: {{movie.title}} </span><br>
+			<br><span> Director: {{movie.director}} </span><br>		
+				
+		</p>	
+		<button type="button" ng-click="vm.meterpeli()">Prueba</button>
+</div> 	 -->	
 </body>
 </html>
