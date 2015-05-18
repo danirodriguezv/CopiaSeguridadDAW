@@ -1,37 +1,21 @@
 angular.module("app").controller("cinemaController", cinemaController);
 
-cinemaController.$inject = ["cinemaService","LxNotificationService"];
+cinemaController.$inject = ["cinemaService","LxNotificationService", "$location"];
 
 // libreria->  LxNotificationService
 
 
-function cinemaController(cinemaService,LxNotificationService) {
+function cinemaController(cinemaService,LxNotificationService, $location) {
 
 	var vm = this;
-	
-	vm.movies = [];
-	vm.newMovie = {};
+
 	vm.cinemas = [];
-	/*vm.nuevo = function(name){
-		vm.name = name;
-	}*/	
-	
-	vm.movies = cinemaService.getMovies();
+	vm.cinema_selected; //cine seleccionado en el welcome, vm.cinema_selected.id muestra el id
+
 	vm.cinemas = cinemaService.getCinemas();
 	
-	vm.addPost = function(){		
-		blogService.newPost(vm.newPost);
-		vm.newPost = {};
-	};	
-	
-	vm.meterpeli = function(){
-		vm.newMovie.title = "Comillas";
-		cinemaService.newMovie(vm.newMovie);
-	};
-
-	
 	vm.borrar = function(post){		
-		blogService.deletePost(post);		
+		cinemaService.deleteCinema(cinema);		
 	};
 	
 	vm.notify = function(type)
@@ -45,6 +29,15 @@ function cinemaController(cinemaService,LxNotificationService) {
 	    {
 	        LxNotificationService.notify('Lorem Ipsum', undefined, true);
 	    }	   
+	};
+	
+	vm.prueba = function(id){
+		vm.cinema_selected=id;
+	};
+	
+	vm.acceder = function(id){
+		
+		$location.path("/cinemas/"+id);
 	};
 	
 };

@@ -8,3 +8,15 @@
 #imageCinema{
 	width : 100%;
 }
+
+#identification{
+	width : 100%;
+	
+}
+
+#cardIdentity{
+	margin : auto;
+	margin-top : 30px;
+	min-width : 50%;
+	max-width : 50%;
+}

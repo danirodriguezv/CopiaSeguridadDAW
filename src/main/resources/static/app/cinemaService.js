@@ -1,52 +1,68 @@
-angular.module("app").service("cinemaService", cinemaService);
+angular.module("app").factory("cinemaService", cinemaService);
 
-cinemaService.$inject = [ "$resource" ];
+cinemaService.$inject = [ "$resource", "$timeout" ];
 
-function cinemaService($resource) {
-	
-	var that = this;
-	
-	this.movies = [];
-	this.cinemas = [];
-	
-	var MoviesResource = $resource('/movies');
-	var MoviesResource2 = $resource('/movies/:id',{
-		id : '@id'},{update : {method:'PUT'}}
-	);
-	var CinemaResource = $resource("/cinemas");
-	
-	this.getMovies = function() {
-		movies = MoviesResource.query(); 
-		return movies; 
+function cinemaService($resource, $timeout) {
+
+	var CinemaResource = $resource('/cinemas/:id', {
+		id : '@id'
+	}, {
+		update : {
+			method : "PUT"
+		}
+	});
+
+	var cinemas = [];
+
+	function autoreload(){
+		reload();
+		$timeout(autoreload, 5000);
 	}
 	
-	this.getCinemas = function() {
-		cinemas = CinemaResource.query(); 
-		return cinemas; 
+	autoreload();
+	
+	return {
+		reload : reload,
+		getCinemas : getCinemas,
+		getCinema : getCinema,		
+		newCinema : newCinema,
+		updateCinema : updateCinema,
+		deleteCinema : deleteCinema
+	}
+
+	function reload(){
+		var promise = CinemaResource.query(function(newCinemas){
+			cinemas.length = 0;
+			cinemas.push.apply(cinemas, newCinemas);
+		}).$promise;
+		return promise;
 	}
 	
-	this.newMovie = function(peli) {
-		new MoviesResource2(peli).$save(function(absurda) { 
-			movies.push(absurda);
+	function getCinemas() {
+		return cinemas;
+	}
+
+	function getCinema(id) {
+		for (var i = 0; i < cinemas.length; i++) {
+			if (cinemas[i].id.toString() === id) {
+				return cinemas[i];
+			}
+		}
+	}
+
+	function newCinema(newCinema) {
+		new CinemaResource(newCinema).$save(function(cinema) {
+			cinemas.push(cinema);
 		});
 	}
-	
-	/*function newMovie(newMovie){
-		new MovieResource2(newMovie).$save(function(absurda) { 
-			movies.push(absurda);
-		});
-	}*/
 
-	
-	
-	
-	/*this.updateItem = function(updatedItem) {
-		updatedItem.$update();
-	}*/
-	
-	this.deletePost = function(post) {
-		post.$remove(function() {
-			posts.splice(posts.indexOf(post), 1);
-		});
+	function updateCinema(updatedCinema) {
+		updatedCinema.$update();
 	}
+
+	function deleteCinema(cinema) {
+		cinema.$remove(function() {
+			cinemas.splice(cinemas.indexOf(cinema), 1);
+		});
+	}	
 }

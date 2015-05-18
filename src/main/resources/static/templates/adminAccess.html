@@ -8,37 +8,38 @@
 
         <span class="toolbar__label fs-title"><h1>Acceso</h1></span>
 		<div class="toolbar__right mr+ " >            
-                <a href="#/"><i class="icon icon--l icon--white icon--flat mdi mdi-undo " ></i></a>                     
+                <a ng-href="#/"><i class="icon icon--l icon--white icon--flat mdi mdi-undo " ></i></a>                     
         </div>
     </div>
 
 	<!-- CARD -->
-	<div flex-container="row" flex-gutter="24" style="margin:auto;margin-top:30px;min-width:50%;max-width:50%;">
+	<div flex-container="row" flex-gutter="24" id="cardIdentity">
 	    <div flex-item>
 	        <div class="card">
 	            <div class="card__img card__img--top">
-	                <img src="/images/identificacion.jpg" style="width:100%;">
+	                <img src="/images/identificacion.jpg" id="identification">
 	                <span class="fs-headline tc-white-1 display-block"></span>
 	            </div>
 	
 	            <lx-text-field label="Usuario" fixed-label="true" icon="account">
-                	<input type="text" ng-model="vm.nombreUsuario">
+                	<input type="text" ng-model="vm.tupla.nombreUsuario">
             	</lx-text-field>
             	<lx-text-field label="Contrasena" fixed-label="true" icon="key-variant">
-                	<input type="password" ng-model="vm.contrasena">
+                	<input type="password" ng-model="vm.tupla.contrasena">
            		</lx-text-field>
 	
 	            <div class="card__actions bgc-black-1">
 	                
-	                <button class="btn btn--m btn--orange btn--flat " lx-ripple>LOGIN</button>
+	                <button class="btn btn--m btn--orange btn--flat" ng-click="vm.loguear()" lx-ripple>LOGIN</button>
 	            </div>
 	        </div>
 	    </div>
     </div>   
     
     <h1>Prueba de que recoge bien</h1>
-    {{vm.nombreUsuario}} <br>
-    {{vm.contrasena}}<br>
+    {{vm.nombreUsuario}}<br>
+    {{vm.tupla.nombreUsuario}} <br>
+    {{vm.tupla.contrasena}}<br>
    
 	
 </div>

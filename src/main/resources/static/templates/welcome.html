@@ -8,7 +8,7 @@
 
         <span class="toolbar__label fs-title"><h1>DawKine</h1></span>
 		<div class="toolbar__right mr+ " >            
-                <a href="#/acceso"><i class="icon icon--l icon--white icon--flat mdi mdi-ticket-account " ></i> </a>                   
+                <a ng-href="#/acceso"><i class="icon icon--l icon--white icon--flat mdi mdi-ticket-account " ></i> </a>                   
         </div>
     </div>
 
@@ -26,7 +26,7 @@
 	
 	                <div class="paragraph fs-body-1">
 				    	<div flex-item>
-					        <lx-select ng-model="selects.selectedPerson" placeholder="Elige tu cine" choices="vm.cinemas" floating-label>
+					        <lx-select ng-model="vm.cinema_selected" placeholder="Elige tu cine" choices="vm.cinemas" floating-label>
 					            <lx-select-selected>
 					                {{ $selected.name}} 
 					            </lx-select-selected>
@@ -41,10 +41,9 @@
 	                </div>
 	            </div>
 	
-	            <div class="card__actions bgc-black-1">
-	                
-	                <button class="btn btn--m btn--white btn--flat " lx-ripple>Acceder</button>
-	            </div>
+	            <div class="card__actions bgc-black-1">	               
+	                <button class="btn btn--m btn--white btn--flat " ng-click="vm.acceder(vm.cinema_selected.id)" lx-ripple>Acceder</button>
+	            </div>	            
 	        </div>
 	    </div>
     </div>   

@@ -8,10 +8,13 @@ adminController.$inject = ["cinemaService","LxNotificationService"];
 function adminController(cinemaService,LxNotificationService) {
 
 	var vm = this;
-	
+	vm.tupla={};
 	vm.nombreUsuario="";
 	vm.contrasena="";
 	
+	vm.loguear = function(){		
+		location.href="/access?nom="+vm.tupla.nombreUsuario+"&pass="+vm.tupla.contrasena;
+	};
 	
 	
 	
