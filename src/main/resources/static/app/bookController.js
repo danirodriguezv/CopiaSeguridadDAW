@@ -2,6 +2,11 @@ angular.module("app").controller("bookController", bookController);
 
 bookController.$inject = ["bookService", "$routeParams", "$location", "LxNotificationService","LxDialogService"];
 
+
+
+
+
+
 function bookController(bookService, $routeParams, $location, LxNotificationService,LxDialogService) {
 
 	var vm = this;
@@ -16,7 +21,7 @@ function bookController(bookService, $routeParams, $location, LxNotificationServ
 	
 	vm.objetivoBusqueda='Todos';
 	vm.ordenadoPor="title";
-	vm.categorias=["Terror","Fantastico"];
+	vm.categorias=["Terror","Fantastico","Ciencia Ficcion","Juvenil","Humanistico","Romantica","Poesia","Novela Negra","Otros"];
 	vm.sugerencia;
 	
 	
@@ -56,5 +61,21 @@ function bookController(bookService, $routeParams, $location, LxNotificationServ
 	vm.abrirDialogSugerencia = function(dialogId){
 		LxDialogService.open(dialogId);
 	}
+	
+	vm.uploadFile = function(){
+		var name = vm.name;
+		var file = vm.file;
+		console.log(name);
+		console.log(file);
+		
+	}
+	
+	
+	
+	
+	
+
+	
+	
 };
 

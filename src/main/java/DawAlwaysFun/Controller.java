@@ -1,10 +1,7 @@
 package DawAlwaysFun;
 
+
 import java.util.List;
-
-
-
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
+
 @RestController
 public class Controller implements CommandLineRunner {
 
@@ -27,7 +25,6 @@ public class Controller implements CommandLineRunner {
 	
 	@Autowired
 	private ServiceDawFun serviceDawFun;
-
 
 	
 	
@@ -125,11 +122,39 @@ public class Controller implements CommandLineRunner {
 		movie4.setTitle("Novita y el gato cosmico");
 		serviceDawFun.setMovie(movie4);
 		
+		
+		Thepark park = new Thepark();
+		park.setAddress_park("Casa de campo");
+		park.setCheck_park(true);
+		park.setClose_park("1:00");
+		park.setDescription_park("El Parque de Atracciones de Madrid es el parque de atracciones de la ciudad de Madrid, situado en el parque de la Casa de Campo, concretamente en la zona de Batán. El parque cuenta con dos puertas de acceso: la principal y la de la zona infantil");
+		park.setImage_park("parqueAtracciones.jpg");
+		park.setKind_park("Atracciones");
+		park.setName_park("Parque de Atracciones");
+		park.setOpen_park("12:00");
+		park.setPrice_park(31);
+		park.setProvince_park("Madrid");
+		serviceDawFun.setPark(park);
+		
+		Thepark park2 = new Thepark();
+		park2.setAddress_park("Torrejon de Ardoz");
+		park2.setCheck_park(true);
+		park2.setClose_park("1:00");
+		park2.setDescription_park("La warner es el mejor de los parques tematicos para pasarlo en familia");
+		park2.setImage_park("warner.png");
+		park2.setKind_park("Atracciones");
+		park2.setName_park("Parque Warner");
+		park2.setOpen_park("12:00");
+		park2.setPrice_park(31);
+		park2.setProvince_park("Madrid");
+		serviceDawFun.setPark(park2);
+		
+		
 		Local local = new Local();
 		local.setAddress("Calle arcipreste de Hita");
 		local.setCapacity(100);
 		local.setClose_time("2:00");
-		local.setFood_type("Comida rica");
+		local.setDescripcion("Comida rica");
 		local.setLocal_type("RESTAURANTE");
 		local.setName("La castellaneda");
 		local.setOpen_time("8:00");
@@ -143,7 +168,7 @@ public class Controller implements CommandLineRunner {
 		local2.setAddress("Calle mostoles");
 		local2.setCapacity(250);
 		local2.setClose_time("2:00");
-		local2.setFood_type("Comida sana");
+		local2.setDescripcion("Comida sana");
 		local2.setLocal_type("PUB");
 		local2.setName("El pato mojao");
 		local2.setOpen_time("8:00");
@@ -160,7 +185,7 @@ public class Controller implements CommandLineRunner {
 		actividad.setImage("globo.png");
 		actividad.setName("Viaje en globo");
 		actividad.setPrice(250);
-		actividad.setRisk("BAJO");
+		actividad.setRisk(false);
 		actividad.setSite("Pradera de san isidro");
 		serviceDawFun.setOutdoor(actividad);
 		
@@ -171,7 +196,7 @@ public class Controller implements CommandLineRunner {
 		actividad2.setImage("paraca.png");
 		actividad2.setName("Paracaidismo");
 		actividad2.setPrice(500);
-		actividad2.setRisk("ALTO");
+		actividad2.setRisk(true);
 		actividad2.setSite("Alto de Alcorcon");
 		serviceDawFun.setOutdoor(actividad2);
 		
@@ -240,19 +265,19 @@ public class Controller implements CommandLineRunner {
 	//Metodos del controlador de los parques tematicos
 	
 	@RequestMapping(value = "/parks", method = RequestMethod.POST)
-	public ResponseEntity<Theme_park> addPark(@RequestBody Theme_park park){
+	public ResponseEntity<Thepark> addPark(@RequestBody Thepark park){
 		serviceDawFun.setPark(park);
 		return new ResponseEntity<>(park, HttpStatus.CREATED);
 	}
 	
 
 	@RequestMapping(value = "/parks", method = RequestMethod.GET)
-	public List<Theme_park> getParks(){
+	public List<Thepark> getParks(){
 		return serviceDawFun.getParks();
 	}
 	
 	@RequestMapping(value = "/park/{idPark}", method = RequestMethod.GET)
-	public Theme_park getPark(@PathVariable long idPark){
+	public Thepark getPark(@PathVariable long idPark){
 		return serviceDawFun.getPark(idPark);
 	}
 	
@@ -323,4 +348,9 @@ public class Controller implements CommandLineRunner {
 		
 		//return serviceDawKine.getMovie(idMovie);
 	}
+	
+	
+	
+	
+	
 }

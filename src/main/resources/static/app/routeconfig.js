@@ -11,6 +11,9 @@ function RouteConfig($routeProvider){
 	$routeProvider.when('/movies',{ templateUrl : "templates/peliculas.html"});
 	$routeProvider.when('/admin',{ templateUrl : "templates/adminAccess.html"});
 	$routeProvider.when('/promocionate',{ templateUrl : "templates/promocionate.html"});
+	$routeProvider.when('/parques',{ templateUrl : "templates/parques.html"});
 	$routeProvider.when('/locales',{ templateUrl : "templates/locales.html"});
 	$routeProvider.when('/riesgo',{ templateUrl : "templates/riesgo.html"});
+
+	$routeProvider.when('/access/:nom/:pass',{ templateUrl : "templates/welcome.html"});
 }
