@@ -9,14 +9,14 @@ import javax.persistence.Id;
 public class Outdoor_activity{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
 	private String description;
 	private String name;
 	private int age_recomended;
 	private String site;
-	private boolean risk;
+	private String risk;
 	private long price;
 	private String image;
 	private int duration;
@@ -51,10 +51,10 @@ public class Outdoor_activity{
 	public void setSite(String site) {
 		this.site = site;
 	}
-	public boolean isRisk() {
+	public String isRisk() {
 		return risk;
 	}
-	public void setRisk(boolean risk) {
+	public void setRisk(String risk) {
 		this.risk = risk;
 	}
 	public long getPrice() {

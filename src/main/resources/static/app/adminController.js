@@ -1,11 +1,11 @@
 angular.module("app").controller("adminController", adminController);
 
-adminController.$inject = ["cinemaService","LxNotificationService"];
+adminController.$inject = ["bookService","LxNotificationService","$location"];
 
 // libreria->  LxNotificationService
 
 
-function adminController(cinemaService,LxNotificationService) {
+function adminController(bookService,LxNotificationService,$location) {
 
 	var vm = this;
 	vm.tupla={};
@@ -16,6 +16,10 @@ function adminController(cinemaService,LxNotificationService) {
 		location.href="/access?nom="+vm.tupla.nombreUsuario+"&pass="+vm.tupla.contrasena;
 	};
 	
+	vm.ir= function(sitio){
+				
+		$location.path("/"+sitio);
+	}
 	
 	
 	

@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Videogame{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
 	private String name;
@@ -19,8 +19,14 @@ public class Videogame{
 	private int pegi_age;
 	private String category;
 	private String image;
-	private boolean online;
+	private String description;
 	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public long getId() {
 		return id;
 	}
@@ -68,11 +74,5 @@ public class Videogame{
 	}
 	public void setImage(String image) {
 		this.image = image;
-	}
-	public boolean isOnline() {
-		return online;
-	}
-	public void setOnline(boolean online) {
-		this.online = online;
 	}
 }

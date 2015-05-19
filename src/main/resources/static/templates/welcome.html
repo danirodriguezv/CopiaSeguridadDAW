@@ -1,75 +1,68 @@
-<div ng-controller="cinemaController as vm" layout="column" layout-fill>
+<div ng-controller="welcomeController as vm" layout="column" layout-fill>
 
-	<!-- BARRA SUPERIOR -->
-	<div class="toolbar bgc-grey-800 tc-white-1">
-        <div class="toolbar__left mr+ ">            
-                <i class="icon icon--l icon--white icon--flat mdi mdi-ticket "></i>                     
-        </div>
 
-        <span class="toolbar__label fs-title"><h1>DawKine</h1></span>
-		<div class="toolbar__right mr+ " >            
-                <a ng-href="#/acceso"><i class="icon icon--l icon--white icon--flat mdi mdi-ticket-account " ></i> </a>                   
+
+
+
+<!-- BARRA SUPERIOR -->
+	<div flex-item>
+        <div class="card bgc-indigo-500">
+            <div class="toolbar">
+                <span class="toolbar__label fs-title tc-white-1 ml"><img src="/images/dawlogo.png" height=50></span>
+                <div class="toolbar__right">
+                <button class="btn btn--m btn--blue btn--raised" ng-click="vm.ir('promocionate')" lx-ripple>Promocionate</button>
+                    <lx-search-filter class="sobreIcono" model="searchFilter.sixth" position="right" theme="dark" closed placeholder="Busqueda"></lx-search-filter>
+
+                    <button class="btn btn--l btn--white btn--icon" lx-ripple ng-click="vm.ir('admin')">
+                        <i class="mdi mdi-account sobreIcono"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
+    
+    <div class="tc-white-1" flex-container="row">
 
-	<!-- CARD -->
-	<div flex-container="row" flex-gutter="24" id="welcomeCard">
-	    <div flex-item>
-	        <div class="card">
-	            <div class="card__img card__img--top">
-	                <img src="/images/cine.jpg" id="imageCinema">
-	                <span class="fs-headline tc-white-1 display-block">DawKine</span>
-	            </div>
-	
-	            <div class="p+">
-	                <span class="fs-subhead tc-black-2 display-block">Selecciona tu cine</span>
-	
-	                <div class="paragraph fs-body-1">
-				    	<div flex-item>
-					        <lx-select ng-model="vm.cinema_selected" placeholder="Elige tu cine" choices="vm.cinemas" floating-label>
-					            <lx-select-selected>
-					                {{ $selected.name}} 
-					            </lx-select-selected>
-					            
-					            <lx-select-choices>
-					                <span ng-repeat="cinema in vm.cinemas">
-										<span> {{cinema.name}} </span>				
-									</span>	
-					            </lx-select-choices>
-					        </lx-select>
-				    	</div>
-	                </div>
-	            </div>
-	
-	            <div class="card__actions bgc-black-1">	               
-	                <button class="btn btn--m btn--white btn--flat " ng-click="vm.acceder(vm.cinema_selected.id)" lx-ripple>Acceder</button>
-	            </div>	            
-	        </div>
-	    </div>
-    </div>   
-	
-	<!-- FIN CARD -->
-	
-	<!-- <h1>PROBANDO</h1>
-	<div flex-container="row" flex-gutter="24">
-	    <div flex-item>
-	        <lx-select ng-model="selects.selectedPerson" placeholder="Elige tu cine" choices="vm.cinemas" floating-label>
-	            <lx-select-selected>
-	                {{ $selected.name}} 
-	            </lx-select-selected>
-	            
-	            <lx-select-choices>
-	                <span ng-repeat="cinema in vm.cinemas">
-						<span> {{cinema.name}} </span>				
-					</span>	
-	            </lx-select-choices>
-	        </lx-select>
-	    </div>
-	    
+	 	<div flex-item="4" flex-item-order="1"><a href="#/videojuegos" ><div class="p+++ bgc-white panelSeccion" style="height:200px;background-image:url(../images/videoj.jpg);background-size:100% 100%;"></div></div></a>
+	    <div flex-item="4" flex-item-order="2"><a href="#/libros" ><div class="p+++ bgc-white panelSeccion" style="height:200px;background-image:url(../images/libr.jpg);background-size:100% 100%;""></div></div></a>
+	    <div flex-item="4" flex-item-order="3"><a href="#/movies" ><div class="p+++ bgc-white panelSeccion" style="height:200px;background-image:url(../images/peliculas.jpg);background-size:100% 100%;""></div></div></a>
+
 	</div>
-	<br>
-	<h1>PARTE DE REPEAT DE CINES</h1>
-	<p ng-repeat="cinema in vm.cinemas">
-		<br><span> Nombre cine: {{cinema.name}} </span><br>
-	</p>	 -->
+		
+    
+    <div class="tc-white-1" flex-container="row">
+
+	    <div flex-item="4" flex-item-order="1"><div class="p+++ bgc-white panelSeccion" style="height:200px;background-image:url(../images/parques.jpg);background-size:100% 100%;"></div></div>
+	    <div flex-item="4" flex-item-order="2"><a href="#/locales"><div class="p+++ bgc-white panelSeccion" style="height:200px;background-image:url(../images/local.jpg);background-size:100% 100%;""></div></a></div>
+	    <div flex-item="4" flex-item-order="3"><a href="#/riesgo"><div class="p+++ bgc-white panelSeccion" style="height:200px;background-image:url(../images/riesgo.jpg);background-size:100% 100%;""></div></a></div>
+
+	</div>
+    
+    
+   <!--   
+    <div class="card">
+    <lx-tabs>
+        <lx-tab heading="INDOOR">
+            <div>
+    <button class="btn btn--m btn--blue btn--raised" lx-ripple>Libros</button>
+    <button class="btn btn--m btn--green btn--raised" lx-ripple>Peliculas</button>
+    <button class="btn btn--m btn--orange btn--raised" lx-ripple>Videojuegos</button>
+    </div>
+        </lx-tab>
+
+        <lx-tab heading="OUTDOOR">
+                  <div>
+    <button class="btn btn--m btn--blue btn--raised" lx-ripple>Locales</button>
+    <button class="btn btn--m btn--green btn--raised" lx-ripple>Actividades al aire libre</button>
+    <button class="btn btn--m btn--orange btn--raised" lx-ripple>Parques tematicos</button>
+    </div>
+       </lx-tab>
+</lx-tabs>
 </div>
+{{vm.books}} 
+
+-->
+</div>
+
+	
+
