@@ -59,9 +59,9 @@ public class Controller implements CommandLineRunner {
 		Videogame game = new Videogame();
 		game.setName("Battlefield 3");
 		game.setPegi_age(16);
-		game.setCategory("GUERRA");
+		game.setCategory("SHOOTER");
 		game.setDescription("Juego ultramoderno basado en las guerras futuristas");
-		game.setPlatform("DISPAROS");
+		game.setPlatform("PS4");
 		game.setPublisher("EA");
 		game.setDevelopment("Equipo daw");
 		game.setImage("battle.png");
@@ -72,7 +72,7 @@ public class Controller implements CommandLineRunner {
 		game2.setPegi_age(12);
 		game2.setCategory("TERCERA PERSONA");
 		game2.setDescription("Lo mejor para pasar la vida en casa jugando con la familia");
-		game2.setPlatform("ROL");
+		game2.setPlatform("PC");
 		game2.setPublisher("IA");
 		game2.setDevelopment("Equipo plantoso");
 		game2.setImage("plants.png");
@@ -87,6 +87,7 @@ public class Controller implements CommandLineRunner {
 		movie.setPhoto("vengadores.png");
 		movie.setProduction("WarnerBros");
 		movie.setTitle("Los vengadores, la era de ultron");
+		movie.setType("ACCION");
 		serviceDawFun.setMovie(movie);
 		
 		Movie movie2 = new Movie();
@@ -98,6 +99,7 @@ public class Controller implements CommandLineRunner {
 		movie2.setPhoto("magua.png");
 		movie2.setProduction("WarnerBros");
 		movie2.setTitle("El maestro de agua");
+		movie2.setType("DRAMA");
 		serviceDawFun.setMovie(movie2);
 		
 		Movie movie3 = new Movie();
@@ -109,6 +111,7 @@ public class Controller implements CommandLineRunner {
 		movie3.setPhoto("atodogas.png");
 		movie3.setProduction("WarnerBros");
 		movie3.setTitle("A todo gas, el mañana");
+		movie3.setType("ACCION");
 		serviceDawFun.setMovie(movie3);
 		
 		Movie movie4 = new Movie();
@@ -120,6 +123,7 @@ public class Controller implements CommandLineRunner {
 		movie4.setPhoto("novita.png");
 		movie4.setProduction("WarnerBros");
 		movie4.setTitle("Novita y el gato cosmico");
+		movie4.setType("COMEDIA");
 		serviceDawFun.setMovie(movie4);
 		
 		
@@ -149,6 +153,18 @@ public class Controller implements CommandLineRunner {
 		park2.setProvince_park("Madrid");
 		serviceDawFun.setPark(park2);
 		
+		Thepark park3 = new Thepark();
+		park3.setAddress_park("Villanueva de la Cañada");
+		park3.setCheck_park(true);
+		park3.setClose_park("20:00");
+		park3.setDescription_park("El mejor lugar para ir con los amigos y disfrutar de las mejores atracciones acuaticas");
+		park3.setImage_park("aquopolis.jpg");
+		park3.setKind_park("Acuaticos");
+		park3.setName_park("Aquopolis");
+		park3.setOpen_park("12:00");
+		park3.setPrice_park(25);
+		park3.setProvince_park("Madrid");
+		serviceDawFun.setPark(park3);
 		
 		Local local = new Local();
 		local.setAddress("Calle arcipreste de Hita");
@@ -185,7 +201,7 @@ public class Controller implements CommandLineRunner {
 		actividad.setImage("globo.png");
 		actividad.setName("Viaje en globo");
 		actividad.setPrice(250);
-		actividad.setRisk(false);
+		actividad.setRisk("BAJO");
 		actividad.setAddress("Pradera de san isidro");
 		serviceDawFun.setOutdoor(actividad);
 		
@@ -196,7 +212,7 @@ public class Controller implements CommandLineRunner {
 		actividad2.setImage("paraca.png");
 		actividad2.setName("Paracaidismo");
 		actividad2.setPrice(500);
-		actividad2.setRisk(true);
+		actividad2.setRisk("ALTO");
 		actividad2.setAddress("Alto de Alcorcon");
 		serviceDawFun.setOutdoor(actividad2);
 		
@@ -337,13 +353,13 @@ public class Controller implements CommandLineRunner {
 	
 	//Metodos del controlador de admin
 	
-	@RequestMapping(value = "/access", method = RequestMethod.GET)
-	public boolean validateAdmin(@RequestParam String	nom, @RequestParam String	pass){
-		
+	@RequestMapping(value = "/access/{nom}/{pass}", method = RequestMethod.GET)
+	public boolean validateAdmin(@PathVariable String	nom, @PathVariable String	pass){
+		System.out.println("dasd"+nom+pass);
 		if(nom.equals("admin")&&pass.equals("1234")){			
 			user.setAdmin(true);			
 		}
-		
+		System.out.println(user.isAdmin());
 		return user.isAdmin();
 		
 		//return serviceDawKine.getMovie(idMovie);

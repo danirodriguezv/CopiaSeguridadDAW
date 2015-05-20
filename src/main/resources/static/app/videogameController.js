@@ -11,6 +11,12 @@ function videogameController(videogameService, $routeParams, $location, LxNotifi
 	
 		
 	//Controller logic
+	vm.objetivoBusqueda = 'Todos';
+	
+	vm.ordenadoPor = "name";
+	vm.pegi = [3,7,12,16,18];
+	vm.categorias = ["ROL","PRIMERA PERSONA","TERCERA PERSONA","SHOOTER"];
+	
 	
 	vm.videoclub = videogameService.getVideogames();
 	vm.namegame;
@@ -22,6 +28,18 @@ function videogameController(videogameService, $routeParams, $location, LxNotifi
 	vm.desc;
 	vm.gameimage;
 	//Controller actions
+	vm.busquedaCat = function(categoria){
+		vm.objetivoBusqueda = categoria;
+	}
+	
+	vm.busqueda = function(pegi){
+		vm.objetivoBusqueda = pegi;
+	}
+	
+	vm.indicarOrden = function(orden){
+		vm.ordenadoPor = orden;
+	}
+	
 	
 	vm.opendDialog = function(dialogId,game)
 	{

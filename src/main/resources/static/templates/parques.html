@@ -11,7 +11,7 @@
                 <span class="toolbar__label fs-title tc-white-1 ml"><img src="/images/dawlogo.png" height=50></span>
 
                 <div class="toolbar__right">
-                    <lx-search-filter class="sobreIcono" model="searchFilter.sixth" position="right" theme="dark" closed placeholder="Busqueda"></lx-search-filter>
+                    
 					<button class="btn btn--l btn--white btn--icon" lx-ripple>
                         <i class="mdi mdi-lightbulb sobreIcono"></i>
                     </button>
@@ -52,30 +52,27 @@
 	
 	<!-- TABLA -->
 	
+		<div flex-container="row" flex-gutter="24">
+	     <div flex-item   ng-repeat="park in vm.parks | orderBy: vm.ordenadoPor"  ng-click="vm.opendDialog('test',park)" ng-show="park.kind_park==vm.objetivoBusqueda || vm.objetivoBusqueda=='Todos'" class="cards">
+	        <div class="card">
+	            <div flex-container="row">
+	                <div class="card__img card__img--left" style="height: 160px">
+	                    <img src="/images/{{park.image_park}}">
+	                </div>
 	
-	
-	<div flex-container="row" flex-gutter="24">
-	
-     <div flex-item   ng-repeat="park in vm.parks"
-					ng-click="vm.opendDialog('test',park)" class="cards">
-        <div class="card">
-            <div flex-container="row">
-                <div class="card__img card__img--left" style="height: 160px">
-                    <img src="/images/{{park.image_park}}">
-                </div>
-
-                <div flex-item flex-container="column">
-                    <div flex-item>
-                        <div class="p++">
-                            <strong class="fs-headline display-block">{{park.name_park}}</strong>
-                            <strong class="fs-headline display-block">Direccion: {{park.address_park}}</strong>
-                            <strong class="fs-headline display-block">Province: {{park.province_park}}</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>	
+	                <div flex-item flex-container="column">
+	                    <div flex-item>
+	                        <div class="p++">
+	                            <strong class="fs-headline display-block">{{park.name_park}}</strong>
+	                            <strong class="fs-headline display-block">Direccion: {{park.address_park}}</strong>
+	                            <strong class="fs-headline display-block">Provincia: {{park.province_park}}</strong>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	     </div>	
+   		</div>
     
 <!-- DIALOG -->	
 	<lx-dialog class="dialog dialog--l" id="test" auto-close="true" onclose="vm.closingDialog()" onscrollend="scrollEndDialog()">

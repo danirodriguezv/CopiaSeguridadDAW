@@ -13,8 +13,7 @@
 					src="/images/dawlogo.png" height=50></span>
 
 				<div class="toolbar__right">
-					<lx-search-filter class="sobreIcono" model="searchFilter.sixth" position="right"
-						theme="dark" closed placeholder="Busqueda"></lx-search-filter>
+					
 
 					<button class="btn btn--l btn--white btn--icon" ng-click="vm.volver()"lx-ripple>
                         <i class="mdi mdi-undo sobreIcono"></i>
@@ -32,10 +31,12 @@
 			lx-dropdown-toggle>Categoria</button>
 		<lx-dropdown-menu>
 		<ul>
-			<li><a class="dropdown-link">DRAMA</a></li>
-			<li><a class="dropdown-link">ACCION</a></li>
-			<li><a class="dropdown-link">TERROR</a></li>
-			<li><a class="dropdown-link">COMEDIA</a></li>
+			<li><a class="dropdown-link" ng-click="vm.busqueda('Todos')">Todos</a></li>
+			<li class="dropdown-divider"></li>
+			<li><a class="dropdown-link" ng-click="vm.busqueda('DRAMA')">DRAMA</a></li>
+			<li><a class="dropdown-link" ng-click="vm.busqueda('ACCION')">ACCION</a></li>
+			<li><a class="dropdown-link" ng-click="vm.busqueda('TERROR')">TERROR</a></li>
+			<li><a class="dropdown-link" ng-click="vm.busqueda('COMEDIA')">COMEDIA</a></li>
 		</ul>
 		</lx-dropdown-menu> </lx-dropdown>
 
@@ -44,8 +45,8 @@
 
 	<!-- TABLA -->
 	<div flex-item>
-        <div class="card cards" ng-repeat="movie in vm.movies"
-					ng-click="vm.opendDialog('test',movie)">
+        <div class="card cards" ng-repeat="movie in vm.movies | orderBy:vm.ordenadoPor"
+					ng-click="vm.opendDialog('test',movie)" ng-show="movie.type == vm.objetivoBusqueda || vm.objetivoBusqueda == 'Todos'">
 			<div class="card__img card__img--left photocard" style="height: 160px;width:100%">
                     <img src="/images/{{movie.photo}}">
                     
@@ -59,6 +60,7 @@
                         <span class="fs-headline tc-silver-1 display-block">{{movie.title}}</span>
                              <span class="fs-subhead tc-black-2 display-block">Dirigida por {{movie.director}}</span>
                              <span class="fs-subhead tc-black-2 display-block">Duracion: {{movie.duration}} minutos</span>
+                             <span class="fs-subhead tc-black-2 display-block">Tipo: {{movie.type}}</span>
           
                         </div>
                     </div>
@@ -87,6 +89,10 @@
 		    	</div>
 		    </div>
 		    <div flex-item="8" flex-item-order="2">
+		    	<div class="p+ bgc-blue-grey-300">
+		    		<span class="fs-subhead display-block">Tipo</span>
+		    		<span class="fs-display-0.5 display-block">{{vm.type_movie}}</span>
+		    	</div>
 		    	<div class="p+ bgc-blue-grey-300">
 		    		<span class="fs-subhead display-block">Dirigida por</span>
 		    		<span class="fs-display-0.5 display-block">{{vm.direct}}</span>
