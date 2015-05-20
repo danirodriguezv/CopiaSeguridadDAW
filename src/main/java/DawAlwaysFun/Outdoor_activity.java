@@ -20,7 +20,7 @@ public class Outdoor_activity{
 	private String risk;
 
 	private long price;
-	private String image;
+	private String image_activity;
 	private int duration;
 	private String province;
 	
@@ -54,7 +54,7 @@ public class Outdoor_activity{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String isRisk() {
+	public String getRisk() {
 		return risk;
 	}
 	public void setRisk(String risk) {
@@ -66,11 +66,11 @@ public class Outdoor_activity{
 	public void setPrice(long price) {
 		this.price = price;
 	}
-	public String getImage() {
-		return image;
+	public String getImage_activity() {
+		return image_activity;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setImage_activity(String image) {
+		this.image_activity = image;
 	}
 	public int getDuration() {
 		return duration;
