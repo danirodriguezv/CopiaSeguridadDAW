@@ -18,7 +18,16 @@ function panelAdministracionController(adminService,bookService,movieService,loc
 	}
 	
 	vm.objetivoBusqueda = 'Todos';
-	vm.categorias = ["VIDEOGAME","PELICULAS","AVENTURA","LIBROS","PARQUES TEMATICOS","OCIO LOCALES"];
+	
+	vm.tipos = ["VIDEOGAME","LIBRO","PELICULA","PARQUE TEMATICO","LOCAL","ACTIVIDAD"];
+	vm.categorias=["Terror","Fantastico","Ciencia Ficcion","Juvenil","Humanistico","Romantica","Poesia","Novela Negra","Otros"];
+	vm.generogame = ["ROL","PRIMERA PERSONA","TERCERA PERSONA","SHOOTER"];
+	vm.pegi = [3,7,12,16,18];
+	vm.tipo_pelis = ["DRAMA","COMEDIA","ACCION","TERROR"];
+	vm.permite = [true,false];
+	vm.tipo_parque=["Acuatico","Tematico","Atracciones","Safari","Zoologico"];
+	vm.tipo_local = ["PUB","RESTAURANTE"];
+	vm.tipo_riesgo = ["ALTO","MEDIO","BAJO"];
 	
 	vm.books = bookService.getBooks();
 	vm.movies = movieService.getMovies();
@@ -31,8 +40,67 @@ function panelAdministracionController(adminService,bookService,movieService,loc
 	
 	vm.busqueda = function(tipo){
 		vm.objetivoBusqueda = tipo;
-	}
+	};
 
+	vm.borrarVideojuego = function(game){		
+		var posicion = vm.videogames.indexOf(game);		
+		videogameService.deleteVideogame(game);	
+		vm.videogames.splice(posicion, 1);
+		};
+		
+		//
+	vm.borrarLibro = function(libro){		
+		var posicion = vm.books.indexOf(libro);		
+		bookService.deleteBook(libro);	
+		vm.books.splice(posicion, 1);
+	};
 	
+	vm.borrarPelicula = function(peli){		
+		var posicion = vm.movies.indexOf(peli);		
+		movieService.deleteMovie(peli);	
+		vm.movies.splice(posicion, 1);
+	};
+	
+	
+	vm.borrarParque = function(park){		
+		var posicion = vm.parks.indexOf(park);		
+		parkService.deletePark(park);	
+		vm.parks.splice(posicion, 1);
+	};
+	
+	vm.borrarLocal = function(local){		
+		var posicion = vm.locals.indexOf(local);		
+		localService.deleteLocal(local);	
+		vm.locals.splice(posicion, 1);
+	};
+	
+	
+	vm.borrarActividad = function(actividad){		
+		var posicion = vm.actividades.indexOf(actividad);		
+		riesgoService.deleteActividad(actividad);	
+		vm.actividades.splice(posicion, 1);
+	};
+	
+	
+	
+	vm.opendDialog = function(dialogId)
+	{
+		vm.game = vm.tipos[0];
+		vm.libro = vm.tipos[1];
+		vm.pelicula = vm.tipos[2];
+		vm.parque = vm.tipos[3];
+		vm.local = vm.tipos[4];
+		vm.actividad = vm.tipos[5];
+	    LxDialogService.open(dialogId);
+	};
+	
+	vm.closingDialog = function()
+	{
+	    LxNotificationService.info('Ficha cerrada');
+	};
+	
+	vm.volver= function(){
+		$location.path("/");
+	};
 	
 };

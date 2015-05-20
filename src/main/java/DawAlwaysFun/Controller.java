@@ -83,6 +83,42 @@ public class Controller implements CommandLineRunner {
 		game2.setClass_type("VIDEOGAME");
 		serviceDawFun.setVideogame(game2);
 		
+		Videogame game3 = new Videogame();
+		game3.setName("FIFA 15");
+		game3.setPegi_age(3);
+		game3.setCategory("TERCERA PERSONA");
+		game3.setDescription("FIFA 15 recrea con todo detalle el futbol para que los aficionados sientan la emocion del deporte rey como nunca antes");
+		game3.setPlatform("XBOX ONE");
+		game3.setPublisher("EA");
+		game3.setDevelopment("EA SPORTS");
+		game3.setImage("fifa15.jpg");
+		game3.setClass_type("VIDEOGAME");
+		serviceDawFun.setVideogame(game3);
+		
+		Videogame game4 = new Videogame();
+		game4.setName("World of Warcraft: Warlords of Draenor");
+		game4.setPegi_age(12);
+		game4.setCategory("ROL");
+		game4.setDescription("La Horda de Hierro debe ser detenida. Garrosh Grito Infernal ha escapado al pasado y se ha reunido con su padre, Grommash, feroz lider del clan Grito de Guerra. Juntos, convertiran a los clanes orcos de Draenor en una brutal maquina belica");
+		game4.setPlatform("PC");
+		game4.setPublisher("BLIZZARD ");
+		game4.setDevelopment("BLIZZARD ENTERTAINMENT");
+		game4.setImage("wow.jpg");
+		game4.setClass_type("VIDEOGAME");
+		serviceDawFun.setVideogame(game4);
+		
+		Videogame game5 = new Videogame();
+		game5.setName("Star Wars: Battlefront");
+		game5.setPegi_age(16);
+		game5.setCategory("SHOOTER");
+		game5.setDescription("Sumérgete en tus fantasías de combate de Star Wars con Star Wars: Battlefront");
+		game5.setPlatform("PC");
+		game5.setPublisher("EA");
+		game5.setDevelopment("EA GAMES");
+		game5.setImage("battlefront.jpg");
+		game5.setClass_type("VIDEOGAME");
+		serviceDawFun.setVideogame(game5);
+		
 		Movie movie = new Movie();
 		movie.setDescription("La ultima pelicula de los heroes mas heroicos, los autenticos Vengadores");
 		movie.setDirector("Michael doogleas");
@@ -135,6 +171,45 @@ public class Controller implements CommandLineRunner {
 		movie4.setClass_type("PELICULA");
 		serviceDawFun.setMovie(movie4);
 		
+		
+		Movie movie5 = new Movie();
+		movie5.setDescription("La accion transcurre en Judea, el año 30. El imperio romano, dueño y señor del mundo conocido, gobierna con mano de hierro sus vastos territorios, entre ellos Judea, sometiendo con dureza a sus moradores");
+		movie5.setDirector("William Wyler");
+		movie5.setDuration(212);
+		movie5.setLeading_actor("Charlton Heston");
+		movie5.setMovie_trailer("De momento sin trailer");
+		movie5.setPhoto("benHur.jpg");
+		movie5.setProduction("Metro-Goldwyn-Mayer");
+		movie5.setTitle("Ben-Hur");
+		movie5.setType("DRAMA");
+		movie5.setClass_type("PELICULA");
+		serviceDawFun.setMovie(movie5);
+			
+		Movie movie6 = new Movie();
+		movie6.setDescription("Ambientada en la Inglaterra del futuro (el año 1995, pero visto desde 1965) la pelicula sigue la vida de un carismatico joven de 17 años llamado Alex DeLarge cuyos placeres son escuchar la musica de Beethoven, el sexo y la ultraviolencia");
+		movie6.setDirector("Stanley Kubrick");
+		movie6.setDuration(136);
+		movie6.setLeading_actor("Malcolm McDowell");
+		movie6.setMovie_trailer("De momento sin trailer");
+		movie6.setPhoto("narMecanica.jpg");
+		movie6.setProduction("WarnerBros");
+		movie6.setTitle("La naranja mecanica");
+		movie6.setType("DRAMA");
+		movie6.setClass_type("PELICULA");
+		serviceDawFun.setMovie(movie6);
+		
+		Movie movie7 = new Movie();
+		movie7.setDescription("Año 2018. Torrente sale de la carcel, y se encuentra aturdido ante una España convulsa y dividida. Debe encontrar respuestas en su interior para despejar su confusion, y por ello decide convertirse en un 'fuera de la ley'");
+		movie7.setDirector("Santiago Segura");
+		movie7.setDuration(105);
+		movie7.setLeading_actor("Santiago Segura");
+		movie7.setMovie_trailer("De momento sin trailer");
+		movie7.setPhoto("torrenteV.jpg");
+		movie7.setProduction("Amiguetes Entertainment");
+		movie7.setTitle("Torrente V: Operacion Eurovegas");
+		movie7.setType("COMEDIA");
+		movie7.setClass_type("PELICULA");
+		serviceDawFun.setMovie(movie7);
 		
 		Thepark park = new Thepark();
 		park.setAddress_park("Casa de campo");
@@ -241,14 +316,14 @@ public class Controller implements CommandLineRunner {
 	@RequestMapping(value = "/books", method = RequestMethod.POST)
 	public ResponseEntity<Book> addBook(@RequestBody Book book){
 		serviceDawFun.setBook(book);
-		System.out.println("entra3");
+	
 		return new ResponseEntity<>(book, HttpStatus.CREATED);
 	}
 	
 
-	@RequestMapping(value = "/books", method = RequestMethod.GET) //entra aqui si pide getBooks
+	@RequestMapping(value = "/books", method = RequestMethod.GET) 
 	public List<Book> getBooks(){
-		System.out.println("entra2");
+	
 		return serviceDawFun.getBooks();
 	}
 	
@@ -257,6 +332,20 @@ public class Controller implements CommandLineRunner {
 		System.out.println("entra");
 		return serviceDawFun.getBook(idBook);
 	}
+	
+	@RequestMapping(value = "/books/{id}", method = RequestMethod.DELETE)
+	public @ResponseBody boolean deleteBook(@PathVariable long id) {
+		boolean borrado= false;
+		if(user.isAdmin()){
+			serviceDawFun.getRepoBooks().delete(id);	
+			borrado=true;
+		}
+		return borrado;
+	}
+	
+	
+	
+	
 	
 	//Metodos del controlador de las peliculas
 	@RequestMapping(value = "/movies", method = RequestMethod.POST)
@@ -276,6 +365,17 @@ public class Controller implements CommandLineRunner {
 		return serviceDawFun.getMovie(idMovie);
 	}
 	
+	@RequestMapping(value = "/movies/{id}", method = RequestMethod.DELETE)
+	public @ResponseBody boolean deleteMovie(@PathVariable long id) {
+		boolean borrado= false;
+		if(user.isAdmin()){
+			serviceDawFun.getRepoMovies().delete(id);	
+			borrado=true;
+		}
+		return borrado;
+	}
+	
+	
 	//Metodos del controlador de outdoors
 	@RequestMapping(value = "/outdoors", method = RequestMethod.POST)
 	public ResponseEntity<Outdoor_activity> addOutdoor(@RequestBody Outdoor_activity activity){
@@ -292,6 +392,16 @@ public class Controller implements CommandLineRunner {
 	@RequestMapping(value = "/outdoor/{idActivity}", method = RequestMethod.GET)
 	public Outdoor_activity getOutdoor(@PathVariable long idActivity){
 		return serviceDawFun.getOutdoor(idActivity);
+	}
+	
+	@RequestMapping(value = "/outdoors/{id}", method = RequestMethod.DELETE)
+	public @ResponseBody boolean deleteOutdoor(@PathVariable long id) {
+		boolean borrado= false;
+		if(user.isAdmin()){
+			serviceDawFun.getRepoOutdoors().delete(id);	
+			borrado=true;
+		}
+		return borrado;
 	}
 	
 	//Metodos del controlador de los parques tematicos
@@ -313,6 +423,18 @@ public class Controller implements CommandLineRunner {
 		return serviceDawFun.getPark(idPark);
 	}
 	
+	
+	@RequestMapping(value = "/parks/{id}", method = RequestMethod.DELETE)
+	public @ResponseBody boolean deletePark(@PathVariable long id) {
+		boolean borrado= false;
+		if(user.isAdmin()){
+			serviceDawFun.getRepoParks().delete(id);	
+			borrado=true;
+		}
+		return borrado;
+	}
+	
+	
 	//Metodos del controlador de los videojuegos
 	
 	@RequestMapping(value = "/videogames", method = RequestMethod.POST)
@@ -332,6 +454,15 @@ public class Controller implements CommandLineRunner {
 		return serviceDawFun.getVideogame(idVideogame);
 	}
 	
+	@RequestMapping(value = "/videogames/{id}", method = RequestMethod.DELETE)
+	public @ResponseBody boolean deleteItem(@PathVariable long id) {
+		boolean borrado= false;
+		if(user.isAdmin()){
+			serviceDawFun.getRepoVideogames().delete(id);	
+			borrado=true;
+		}
+		return borrado;
+	}
 	
 	
 	
@@ -354,6 +485,17 @@ public class Controller implements CommandLineRunner {
 		return serviceDawFun.getLocal(idLocal);
 	}
 	
+	@RequestMapping(value = "/locals/{id}", method = RequestMethod.DELETE)
+	public @ResponseBody boolean deleteLocal(@PathVariable long id) {
+		boolean borrado= false;
+		if(user.isAdmin()){
+			serviceDawFun.getRepoLocals().delete(id);	
+			borrado=true;
+		}
+		return borrado;
+	}
+	
+	
 	//Metodos del controlador de usuarios
 
 	
@@ -371,16 +513,16 @@ public class Controller implements CommandLineRunner {
 	
 	@RequestMapping(value = "/access/{nom}/{pass}", method = RequestMethod.GET)
 	public boolean validateAdmin(@PathVariable String	nom, @PathVariable String	pass){
-		System.out.println("dasd"+nom+pass);
+		
 		if(nom.equals("admin")&&pass.equals("1234")){			
 			user.setAdmin(true);			
 		}
-		System.out.println(user.isAdmin());
+
 		return user.isAdmin();		
 		
 	}
 	
-	@RequestMapping(value = "/access/", method = RequestMethod.POST) //FUNCIONA SIIIIIIIII
+	@RequestMapping(value = "/access/", method = RequestMethod.POST) 
 	public @ResponseBody boolean validateAdmin2(@RequestBody String cuerpo){
 		
 		
@@ -396,7 +538,7 @@ public class Controller implements CommandLineRunner {
 	public @ResponseBody boolean disconectAdmin(){
 				
 		user.setAdmin(false);	
-		System.out.println(user.isAdmin());
+		
 		
 		return user.isAdmin();		
 		

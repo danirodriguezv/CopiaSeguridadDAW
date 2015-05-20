@@ -23,6 +23,54 @@ public class ServiceDawFun {
 	@Autowired
 	private OutdoorRepository repoOutdoors;
 	
+	public MovieRepository getRepoMovies() {
+		return repoMovies;
+	}
+
+	public void setRepoMovies(MovieRepository repoMovies) {
+		this.repoMovies = repoMovies;
+	}
+
+	public UserRepository getRepoUsers() {
+		return repoUsers;
+	}
+
+	public void setRepoUsers(UserRepository repoUsers) {
+		this.repoUsers = repoUsers;
+	}
+
+	public BookRepository getRepoBooks() {
+		return repoBooks;
+	}
+
+	public void setRepoBooks(BookRepository repoBooks) {
+		this.repoBooks = repoBooks;
+	}
+
+	public LocalRepository getRepoLocals() {
+		return repoLocals;
+	}
+
+	public void setRepoLocals(LocalRepository repoLocals) {
+		this.repoLocals = repoLocals;
+	}
+
+	public OutdoorRepository getRepoOutdoors() {
+		return repoOutdoors;
+	}
+
+	public void setRepoOutdoors(OutdoorRepository repoOutdoors) {
+		this.repoOutdoors = repoOutdoors;
+	}
+
+	public TheParkRepository getRepoParks() {
+		return repoParks;
+	}
+
+	public void setRepoParks(TheParkRepository repoParks) {
+		this.repoParks = repoParks;
+	}
+
 	@Autowired
 	private TheParkRepository repoParks;
 	
@@ -118,6 +166,18 @@ public class ServiceDawFun {
 	public void setVideogame(Videogame videogame){
 		repoVideogames.save(videogame);
 	}
+
+	public VideogameRepository getRepoVideogames() {
+		return repoVideogames;
+	}
+
+	public void setRepoVideogames(VideogameRepository repoVideogames) {
+		this.repoVideogames = repoVideogames;
+	}
+	
+	
+	/**/
+	
 }
 	
 	
