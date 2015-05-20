@@ -365,16 +365,24 @@ public class Controller implements CommandLineRunner {
 		
 	}
 	
-	@RequestMapping(value = "/access/", method = RequestMethod.POST)
+	@RequestMapping(value = "/access/", method = RequestMethod.POST) //FUNCIONA SIIIIIIIII
 	public @ResponseBody boolean validateAdmin2(@RequestBody String cuerpo){
 		
-		System.out.println(cuerpo);
-		boolean esAdmin = cuerpo.contentEquals("nom=admin&pass=1234");
-		System.out.println(esAdmin);
 		
-		user.setAdmin(esAdmin);
+		boolean esAdmin = cuerpo.contentEquals("nom=admin&pass=1234");		
+				
+		user.setAdmin(esAdmin);		
 		
-		System.out.println("La sesion es: "+user.isAdmin());
+		return user.isAdmin();		
+		
+	}
+	
+	@RequestMapping(value = "/disconect", method = RequestMethod.POST) 
+	public @ResponseBody boolean disconectAdmin(){
+				
+		user.setAdmin(false);	
+		System.out.println(user.isAdmin());
+		
 		return user.isAdmin();		
 		
 	}
