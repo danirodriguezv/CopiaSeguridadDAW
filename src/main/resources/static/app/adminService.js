@@ -18,14 +18,20 @@ function adminService($resource,$http) {
 		
 		var AdminResource = $resource('/access/:usuario/:pass',{usuario:'admin',pass:'1234'});
 		
-		this.isAdmin = function(use,pass){	
+		this.isAdmin = function(cuerpo,pass){	
 			
-			alert("hola");
-			$http.get('/access/'+use+'/'pass)
-		    .success(function (data,status) {
-		       // $scope.info_show = data
-		        this.resultado=data
-		    });
+			var guarro="nom=admin&pass=1234";
+			$http.post('/access/', guarro).success(function (d) { alert("hola"+d); });
+
+			
+			
+			/*$http({
+			    method: 'POST',
+			    url: '/access/',
+			    data: cuerpo,
+			    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			})*/
+			
 			
 			
 			/*this.user=use;
@@ -36,7 +42,7 @@ function adminService($resource,$http) {
 			
 			//comprobacion en el lado cliente, no hay narices de recoger el boleano que devuelve
 			
-			return (use==="admin"&&pass==="1234");			
+			return (pass==="1234");			
 		}
 		/*
 		this.getBooks = function(id){
