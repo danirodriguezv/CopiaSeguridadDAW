@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
 
 
 
@@ -36,29 +36,65 @@ public class Controller implements CommandLineRunner {
 		
 		*/
 		Book libro = new Book();
-		libro.setTitle("Libro de la ostia");
-		libro.setWriter("David Retamal el puto amo");
-		libro.setGenre("Erotico");
-		libro.setImage("livro.jpg");
-		libro.setPublisher("Anaya");
-		libro.setPageNumber(230);
-		libro.setSynopsis("Un libro de misterio que contiene 1, dos , 3 o mas embarazos.");
-		libro.setIsbn("ISD-3123");
+		libro.setTitle("El ingenioso hidalgo Don Quijote de la Mancha");
+		libro.setWriter("Miguel de Cervantes");
+		libro.setGenre("Otros");
+		libro.setImage("quijote.jpg");
+		libro.setPublisher("ESPASA LIBROS");
+		libro.setPageNumber(1560);
+		libro.setSynopsis("Es la historia de un hidalgo de la Mancha de unos 50 años que tras leer muchos libros de caballería, un género popular en siglo XVI, decide disfrazarse de caballero andante y embarcarse en una serie de aventuras con su viejo caballo Rocinante");
+		libro.setIsbn("9788467035704");
 		libro.setClass_type("LIBRO");
 		serviceDawFun.setBook(libro);
 		
 		Book libro2 = new Book();
-		libro2.setTitle("La sagrada Biblia");
-		libro2.setWriter("Jesus al bajar de la cruz");
-		libro2.setGenre("Fantastico");
-		libro2.setImage("livro.jpg");
-		libro2.setPublisher("Suma de letras");
-		libro2.setPageNumber(130);
-		libro2.setSynopsis("Un libro de puta madre con gente que bebe vino, resucita peña muerta y es traicionado por un amigo.");
-		libro2.setIsbn("IVD-3413");
+		libro2.setTitle("1984");
+		libro2.setWriter("George Orwell");
+		libro2.setGenre("Ciencia Ficcion");
+		libro2.setImage("1984.jpg");
+		libro2.setPublisher("AUSTRAL");
+		libro2.setPageNumber(326);
+		libro2.setSynopsis("Inquietante interpretacion futurista basada en la critica a los totalitarismos y a la opresion del poder, situada en 1984 en la sociedad inglesa");
+		libro2.setIsbn("9788423342310");
 		libro2.setClass_type("LIBRO");
 		serviceDawFun.setBook(libro2);
 		
+		Book libro3 = new Book();
+		libro3.setTitle("Cien años de soledad");
+		libro3.setWriter("Gabriel Garcia Marquez");
+		libro3.setGenre("Otros");
+		libro3.setImage("cien.jpg");
+		libro3.setPublisher("ALFAGUARA");
+		libro3.setPageNumber(471);
+		libro3.setSynopsis("Una de las aventuras literarias mas fascinantes de nuestro siglo");
+		libro3.setIsbn("9788420471839");
+		libro3.setClass_type("LIBRO");
+		serviceDawFun.setBook(libro3);
+
+		Book libro4 = new Book();
+		libro4.setTitle("Dracula");
+		libro4.setWriter("Bram Stoker");
+		libro4.setGenre("Terror");
+		libro4.setImage("dracula.jpg");
+		libro4.setPublisher("DEBOLSILLO");
+		libro4.setPageNumber(688);
+		libro4.setSynopsis("La novela presenta las anotaciones del diario personal de Jonathan Harker. Un conde de Transilvania llamado Dracula solicita sus servicios como asesor y gestor para la compra de una mansion en Londres");
+		libro4.setIsbn("9788483461846");
+		libro4.setClass_type("LIBRO");
+		serviceDawFun.setBook(libro4);
+		
+		Book libro5 = new Book();
+		libro5.setTitle("El Padrino");
+		libro5.setWriter("Mario Puzo");
+		libro5.setGenre("Novela Negra");
+		libro5.setImage("padrino.jpg");
+		libro5.setPublisher("EDICIONES B");
+		libro5.setPageNumber(477);
+		libro5.setSynopsis("El Padrino narra la historia de un hombre: Vito Corleone, el capo mas respetado de Nueva York");
+		libro5.setIsbn("9788466639040");
+		libro5.setClass_type("LIBRO");
+		serviceDawFun.setBook(libro5);
+				
 		Videogame game = new Videogame();
 		game.setName("Battlefield 3");
 		game.setPegi_age(16);
@@ -253,6 +289,34 @@ public class Controller implements CommandLineRunner {
 		park3.setClass_type("PARQUE TEMATICO");
 		serviceDawFun.setPark(park3);
 		
+		Thepark park4 = new Thepark();
+		park4.setAddress_park("Casa de Campo");
+		park4.setCheck_park(true);
+		park4.setClose_park("22:00");
+		park4.setDescription_park("El parque zoologico de Madrid exhibe una coleccion de mas de 6000 animales de mas de 500 especies diferentes");
+		park4.setImage_park("zoo.jpg");
+		park4.setKind_park("Zoologicos");
+		park4.setName_park("Zoo Aquarium de Madrid");
+		park4.setOpen_park("10:30");
+		park4.setPrice_park(23);
+		park4.setProvince_park("Madrid");
+		park4.setClass_type("PARQUE TEMATICO");
+		serviceDawFun.setPark(park4);
+		
+		Thepark park5 = new Thepark();
+		park5.setAddress_park("Aldea del Fresno");
+		park5.setCheck_park(false);
+		park5.setClose_park("19:00");
+		park5.setDescription_park("Africa queda muy lejos, pero a tan solo 50Km. de Madrid, Safari Madrid le ofrece la posibilidad de observar animales salvajes en libertad, desde su vehiculo");
+		park5.setImage_park("safari.png");
+		park5.setKind_park("Safaris");
+		park5.setName_park("Safari Madrid");
+		park5.setOpen_park("10:30");
+		park5.setPrice_park(17);
+		park5.setProvince_park("Madrid");
+		park5.setClass_type("PARQUE TEMATICO");
+		serviceDawFun.setPark(park5);
+		
 		Local local = new Local();
 		local.setAddress("Calle arcipreste de Hita");
 		local.setCapacity(100);
@@ -283,6 +347,36 @@ public class Controller implements CommandLineRunner {
 		local2.setClass_type("LOCAL");
 		serviceDawFun.setLocal(local2);
 		
+		Local local3 = new Local();
+		local3.setAddress("Calle Santa Teresa");
+		local3.setCapacity(170);
+		local3.setClose_time("3:00");
+		local3.setDescripcion("Espacio que combina la música rock y pop actual con los grandes clásicos");
+		local3.setLocal_type("PUB");
+		local3.setName("Chatarra Cocktail Bar");
+		local3.setOpen_time("17:00");
+		local3.setPhoto("chatarra.jpg");
+		local3.setPrice_medium(8);
+		local3.setProvince("Madrid");
+		local3.setStar(20);
+		local3.setClass_type("LOCAL");
+		serviceDawFun.setLocal(local3);
+		
+		Local local4 = new Local();
+		local4.setAddress("Plaza Angel Carbajo");
+		local4.setCapacity(250);
+		local4.setClose_time("13:30");
+		local4.setDescripcion("El Txistu de Madrid, el de la cocina vasca exquisita, el frecuentado por futbolistas, empresarios y famosos por su calidad; el que esta catalogado como uno de los mejores restaurantes de la ciudad");
+		local4.setLocal_type("RESTAURANTE");
+		local4.setName("Meson Txistu");
+		local4.setOpen_time("23:30");
+		local4.setPhoto("txistu.jpg");
+		local4.setPrice_medium(63);
+		local4.setProvince("Madrid");
+		local4.setStar(50);
+		local4.setClass_type("LOCAL");
+		serviceDawFun.setLocal(local4);
+		
 		Outdoor_activity actividad = new Outdoor_activity();
 		actividad.setAge_recomended(18);
 		actividad.setDescription("Un viaje en globo apasionante");
@@ -290,7 +384,7 @@ public class Controller implements CommandLineRunner {
 		actividad.setImage_activity("globo.png");
 		actividad.setName("Viaje en globo");
 		actividad.setPrice(250);
-		actividad.setRisk("BAJO");
+		actividad.setRisk("MEDIO");
 		actividad.setAddress("Pradera de san isidro");
 		actividad.setClass_type("ACTIVIDAD");
 		serviceDawFun.setOutdoor(actividad);
@@ -307,7 +401,29 @@ public class Controller implements CommandLineRunner {
 		actividad2.setClass_type("ACTIVIDAD");
 		serviceDawFun.setOutdoor(actividad2);
 		
-			
+		Outdoor_activity actividad3 = new Outdoor_activity();
+		actividad3.setAge_recomended(12);
+		actividad3.setDescription("Libera adrenalina a solo dos horas de Madrid. Diversion, emocion y trabajo en equipo son las caracteristicas de esta actividad acuatica");
+		actividad3.setDuration(180);
+		actividad3.setImage_activity("rafting.jpg");
+		actividad3.setName("Rafting");
+		actividad3.setPrice(35);
+		actividad3.setRisk("ALTO");
+		actividad3.setAddress("Sierra de Gredos");
+		actividad3.setClass_type("ACTIVIDAD");
+		serviceDawFun.setOutdoor(actividad3);	
+		
+		Outdoor_activity actividad4 = new Outdoor_activity();
+		actividad4.setAge_recomended(12);
+		actividad4.setDescription("Una experiencia inolvidable que te hará repetir");
+		actividad4.setDuration(10);
+		actividad4.setImage_activity("karts.jpg");
+		actividad4.setName("Karts");
+		actividad4.setPrice(14);
+		actividad4.setRisk("BAJO");
+		actividad4.setAddress("Soto del Real");
+		actividad4.setClass_type("ACTIVIDAD");
+		serviceDawFun.setOutdoor(actividad4);
 		
 	}
 	
@@ -328,8 +444,7 @@ public class Controller implements CommandLineRunner {
 	}
 	
 	@RequestMapping(value = "/books/{idBook}", method = RequestMethod.GET)
-	public Book getBook(@PathVariable long idBook){
-		System.out.println("entra");
+	public Book getBook(@PathVariable long idBook){		
 		return serviceDawFun.getBook(idBook);
 	}
 	
@@ -439,9 +554,12 @@ public class Controller implements CommandLineRunner {
 	
 	@RequestMapping(value = "/videogames", method = RequestMethod.POST)
 	public ResponseEntity<Videogame> addVideogame(@RequestBody Videogame videogame){
-		serviceDawFun.setVideogame(videogame);
+		if(user.isAdmin()){
+			serviceDawFun.setVideogame(videogame);
+		}		
 		return new ResponseEntity<>(videogame, HttpStatus.CREATED);
 	}
+		
 	
 
 	@RequestMapping(value = "/videogames", method = RequestMethod.GET)

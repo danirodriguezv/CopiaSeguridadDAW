@@ -17,10 +17,10 @@ function bookService($resource,$http,LxNotificationService) {
 			return books;
 		}
 		
-		this.getBooks = function(id){
-			book = BookResource.query(id);
+		/*this.getBooks = function(id){
+			book = BookResource.query();
 			return book;
-		}
+		}*/
 		
 		this.deleteBook=function(book) {				
 			//$http.delete('/videogames/'+ video.id);
@@ -34,6 +34,14 @@ function bookService($resource,$http,LxNotificationService) {
 				
 			});	
 				
+		}
+		
+		this.addLibro=function(libro) {			
+			new BookResource(libro).$save(function(post) {
+				this.books.push(post);
+				LxNotificationService.notify('Añadido Correctamente', 'emoticon', false, 'green');
+			});
+			
 		}
 
 		

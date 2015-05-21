@@ -17,6 +17,11 @@ function panelAdministracionController(adminService,bookService,movieService,loc
 		adminService.desconect();
 	}
 	
+	vm.nuevoVideojuego={};
+	vm.nuevoLibro = {};
+	vm.nuevaPeli = {};
+	vm.nuevoParque = {};
+	vm.nuevoLocal = {};
 	vm.objetivoBusqueda = 'Todos';
 	
 	vm.tipos = ["VIDEOGAME","LIBRO","PELICULA","PARQUE TEMATICO","LOCAL","ACTIVIDAD"];
@@ -37,6 +42,33 @@ function panelAdministracionController(adminService,bookService,movieService,loc
 	vm.videogames = videogameService.getVideogames();
 		
 	//Controller logic
+	
+	
+	vm.aniadirParque = function(){
+		vm.nuevoParque.class_type="PARQUE TEMATICO";
+		vm.nuevoParque.image_park="parqueDefault.jpg";
+		parkService.addPark(vm.nuevoParque);
+	}
+	
+	vm.aniadirPelicula = function(){
+		vm.nuevaPeli.class_type="PELICULA";
+		vm.nuevaPeli.photo ="peliculaDefault.jpg";
+		movieService.addPelicula(vm.nuevaPeli);
+	};
+	
+	vm.aniadirLibro = function(){		
+		vm.nuevoLibro.class_type="LIBRO";
+		vm.nuevoLibro.image="libroDefault.jpg";		
+		bookService.addLibro(vm.nuevoLibro);
+	};
+	
+	vm.aniadirVideojuego = function(){		
+		vm.nuevoVideojuego.class_type="VIDEOGAME";
+		vm.nuevoVideojuego.image="videojuegoDefault.jpg";		
+		videogameService.addVideogame(vm.nuevoVideojuego);
+	};
+	
+	
 	
 	vm.busqueda = function(tipo){
 		vm.objetivoBusqueda = tipo;
