@@ -15,7 +15,7 @@ public class Local{
 	private String name;
 	private int star;
 	private long price_medium;
-	private String address;
+	private String address_local;
 	private String descripcion;
 	private String province;
 	private String photo;
@@ -61,11 +61,11 @@ public class Local{
 	public void setPrice_medium(long price_medium) {
 		this.price_medium = price_medium;
 	}
-	public String getAddress() {
-		return address;
+	public String getAddress_local() {
+		return address_local;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddress_local(String address_local) {
+		this.address_local = address_local;
 	}
 	public String getDescripcion() {
 		return descripcion;

@@ -11,7 +11,16 @@ function panelAdministracionController(adminService,bookService,movieService,loc
 
 	var vm = this;
 	
-	//View model properties
+	//View model properties	
+	
+	vm.comprobarAdmin= function(){
+		
+		adminService.comprobarAdministrador();
+	}
+	
+	vm.comprobarAdmin();
+	
+	
 	
 	vm.desconectar = function(){
 		adminService.desconect();
@@ -149,6 +158,15 @@ function panelAdministracionController(adminService,bookService,movieService,loc
 		$location.path("/");
 	};
 	
+	vm.actualizar= function(){
+		vm.books = bookService.getBooks();
+		vm.movies = movieService.getMovies();
+		vm.locals = localService.getLocals();
+		vm.parks = parkService.getParks();
+		vm.actividades = riesgoService.getActividades();
+		vm.videogames = videogameService.getVideogames();
+	};
+	
 	
 	
 	/****** EDITAR *****/
@@ -161,5 +179,68 @@ function panelAdministracionController(adminService,bookService,movieService,loc
 	vm.aniadirVideojuegoEditado=function(){			
 		videogameService.updateVideogame(vm.juegoEditado);		
 	}
+	
+/****** EDITAR LIBRO*****/
+	
+	vm.editarLibro = function(lib){		
+		vm.libroEditado=lib;
+		LxDialogService.open("editarLibro");
+	}
+	
+	vm.aniadirLibroEditado=function(){			
+		bookService.updateLibro(vm.libroEditado);		
+	}
+	
+	
+/****** EDITAR PELICULA*****/
+	
+	vm.editarPelicula = function(peli){		
+		vm.peliculaEditada=peli;
+		LxDialogService.open("editarPelicula");
+	}
+	
+	vm.aniadirPeliculaEditada=function(){			
+		movieService.updatePelicula(vm.peliculaEditada);		
+	}
+	
+/****** EDITAR LOCAL*****/
+	
+	vm.editarLocal = function(loc){		
+		vm.localEditado=loc;
+		LxDialogService.open("editarLocal");
+	}
+	
+	vm.aniadirLocalEditado=function(){			
+		localService.updateLocal(vm.localEditado);		
+	}
+	
+/****** EDITAR PARQUE*****/
+	
+	vm.editarParque = function(park){		
+		vm.parqueEditado=park;
+		LxDialogService.open("editarParque");
+	}
+	
+	vm.aniadirParqueEditado=function(){			
+		parkService.updateParque(vm.parqueEditado);		
+	}
+	
+
+
+
+/****** EDITAR ACTIVIDAD*****/
+	
+	vm.editarActividad = function(activ){		
+		vm.actividadEditada=activ;
+		LxDialogService.open("editarActividad");
+	}
+	
+	vm.aniadirActividadEditada=function(){			
+		riesgoService.updateActividad(vm.actividadEditada);		
+	}
+	
+	
+
+	
 	
 };

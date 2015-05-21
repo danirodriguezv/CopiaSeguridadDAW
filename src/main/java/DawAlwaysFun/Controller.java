@@ -157,25 +157,25 @@ public class Controller implements CommandLineRunner {
 		
 		Movie movie = new Movie();
 		movie.setDescription("La ultima pelicula de los heroes mas heroicos, los autenticos Vengadores");
-		movie.setDirector("Michael doogleas");
-		movie.setDuration(122);
-		movie.setLeading_actor("Jason Stazam");
-		movie.setMovie_trailer("iVpF6-zMtxY"); //<------------------- AQUI
+		movie.setDirector("Joss Whedon");
+		movie.setDuration(142);
+		movie.setLeading_actor("Robert Downey, Jr.");
+		movie.setMovie_trailer("tmeOjFno6Do"); 
 		movie.setPhoto("vengadores.png");
-		movie.setProduction("WarnerBros");
-		movie.setTitle("Los vengadores, la era de ultron");
+		movie.setProduction("Marvel Studios");
+		movie.setTitle("Los vengadores: la era de ultron");
 		movie.setType("ACCION");
 		movie.setClass_type("PELICULA");
 		serviceDawFun.setMovie(movie);
 		
 		Movie movie2 = new Movie();
 		movie2.setDescription("Una historia increible sobre el señor el cual llamaron el maestro del agua");
-		movie2.setDirector("Doroti");
-		movie2.setDuration(100);
-		movie2.setLeading_actor("Rousel Crowel");
-		movie2.setMovie_trailer("De momento sin trailer");
+		movie2.setDirector("Russell Crowe");
+		movie2.setDuration(111);
+		movie2.setLeading_actor("Russell Crowe");
+		movie2.setMovie_trailer("hmgFHyDLQwc");
 		movie2.setPhoto("magua.png");
-		movie2.setProduction("WarnerBros");
+		movie2.setProduction("Warner Bros. Pictures");
 		movie2.setTitle("El maestro de agua");
 		movie2.setType("DRAMA");
 		movie2.setClass_type("PELICULA");
@@ -183,26 +183,26 @@ public class Controller implements CommandLineRunner {
 		
 		Movie movie3 = new Movie();
 		movie3.setDescription("Una precisa y emocionante carrera de coches");
-		movie3.setDirector("Gamsta");
-		movie3.setDuration(95);
-		movie3.setLeading_actor("Mulatillo");
-		movie3.setMovie_trailer("De momento sin trailer");
-		movie3.setPhoto("atodogas.png");
-		movie3.setProduction("WarnerBros");
-		movie3.setTitle("A todo gas, el mañana");
+		movie3.setDirector("James Wan");
+		movie3.setDuration(137);
+		movie3.setLeading_actor("Vin Diesel");
+		movie3.setMovie_trailer("_kOED5CCKKc");
+		movie3.setPhoto("atodogas.jpg");
+		movie3.setProduction("Universal Pictures");
+		movie3.setTitle("Fast & Furious 7");
 		movie3.setType("ACCION");
 		movie3.setClass_type("PELICULA");
 		serviceDawFun.setMovie(movie3);
 		
 		Movie movie4 = new Movie();
 		movie4.setDescription("Historia de novita y doraemon");
-		movie4.setDirector("Hulito");
-		movie4.setDuration(88);
-		movie4.setLeading_actor("PapaJoe");
-		movie4.setMovie_trailer("De momento sin trailer");
-		movie4.setPhoto("novita.png");
-		movie4.setProduction("WarnerBros");
-		movie4.setTitle("Novita y el gato cosmico");
+		movie4.setDirector("Tsutomu Shibayama");
+		movie4.setDuration(99);
+		movie4.setLeading_actor("Doraemon");
+		movie4.setMovie_trailer("hKSMTGzCMEs");
+		movie4.setPhoto("novita.gif");
+		movie4.setProduction("Toho Company");
+		movie4.setTitle("Doraemon y la fabrica de juguetes");
 		movie4.setType("COMEDIA");
 		movie4.setClass_type("PELICULA");
 		serviceDawFun.setMovie(movie4);
@@ -213,7 +213,7 @@ public class Controller implements CommandLineRunner {
 		movie5.setDirector("William Wyler");
 		movie5.setDuration(212);
 		movie5.setLeading_actor("Charlton Heston");
-		movie5.setMovie_trailer("De momento sin trailer");
+		movie5.setMovie_trailer("Ql0c4JD-93c");
 		movie5.setPhoto("benHur.jpg");
 		movie5.setProduction("Metro-Goldwyn-Mayer");
 		movie5.setTitle("Ben-Hur");
@@ -226,9 +226,9 @@ public class Controller implements CommandLineRunner {
 		movie6.setDirector("Stanley Kubrick");
 		movie6.setDuration(136);
 		movie6.setLeading_actor("Malcolm McDowell");
-		movie6.setMovie_trailer("De momento sin trailer");
+		movie6.setMovie_trailer("A1eC4pG8rC0");
 		movie6.setPhoto("narMecanica.jpg");
-		movie6.setProduction("WarnerBros");
+		movie6.setProduction("Warner Bros");
 		movie6.setTitle("La naranja mecanica");
 		movie6.setType("DRAMA");
 		movie6.setClass_type("PELICULA");
@@ -239,7 +239,7 @@ public class Controller implements CommandLineRunner {
 		movie7.setDirector("Santiago Segura");
 		movie7.setDuration(105);
 		movie7.setLeading_actor("Santiago Segura");
-		movie7.setMovie_trailer("De momento sin trailer");
+		movie7.setMovie_trailer("TEH4G2Qsk2U");
 		movie7.setPhoto("torrenteV.jpg");
 		movie7.setProduction("Amiguetes Entertainment");
 		movie7.setTitle("Torrente V: Operacion Eurovegas");
@@ -318,7 +318,7 @@ public class Controller implements CommandLineRunner {
 		serviceDawFun.setPark(park5);
 		
 		Local local = new Local();
-		local.setAddress("Calle arcipreste de Hita");
+		local.setAddress_local("Calle arcipreste de Hita");
 		local.setCapacity(100);
 		local.setClose_time("2:00");
 		local.setDescripcion("Comida rica");
@@ -333,7 +333,7 @@ public class Controller implements CommandLineRunner {
 		serviceDawFun.setLocal(local);
 		
 		Local local2 = new Local();
-		local2.setAddress("Calle mostoles");
+		local2.setAddress_local("Calle mostoles");
 		local2.setCapacity(250);
 		local2.setClose_time("2:00");
 		local2.setDescripcion("Comida sana");
@@ -348,7 +348,7 @@ public class Controller implements CommandLineRunner {
 		serviceDawFun.setLocal(local2);
 		
 		Local local3 = new Local();
-		local3.setAddress("Calle Santa Teresa");
+		local3.setAddress_local("Calle Santa Teresa");
 		local3.setCapacity(170);
 		local3.setClose_time("3:00");
 		local3.setDescripcion("Espacio que combina la música rock y pop actual con los grandes clásicos");
@@ -363,7 +363,7 @@ public class Controller implements CommandLineRunner {
 		serviceDawFun.setLocal(local3);
 		
 		Local local4 = new Local();
-		local4.setAddress("Plaza Angel Carbajo");
+		local4.setAddress_local("Plaza Angel Carbajo");
 		local4.setCapacity(250);
 		local4.setClose_time("13:30");
 		local4.setDescripcion("El Txistu de Madrid, el de la cocina vasca exquisita, el frecuentado por futbolistas, empresarios y famosos por su calidad; el que esta catalogado como uno de los mejores restaurantes de la ciudad");
@@ -431,8 +431,17 @@ public class Controller implements CommandLineRunner {
 	
 	@RequestMapping(value = "/books", method = RequestMethod.POST)
 	public ResponseEntity<Book> addBook(@RequestBody Book book){
+		if(user.isAdmin()){
 		serviceDawFun.setBook(book);
+		}
+		return new ResponseEntity<>(book, HttpStatus.CREATED);
+	}
 	
+	@RequestMapping(value = "/books", method = RequestMethod.PUT)
+	public ResponseEntity<Book> updateBook(@RequestBody Book book){
+		if(user.isAdmin()){
+		serviceDawFun.setBook(book);
+		}
 		return new ResponseEntity<>(book, HttpStatus.CREATED);
 	}
 	
@@ -465,7 +474,17 @@ public class Controller implements CommandLineRunner {
 	//Metodos del controlador de las peliculas
 	@RequestMapping(value = "/movies", method = RequestMethod.POST)
 	public ResponseEntity<Movie> addMovie(@RequestBody Movie movie){
+		if(user.isAdmin()){
 		serviceDawFun.setMovie(movie);
+		}
+		return new ResponseEntity<>(movie, HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value = "/movies", method = RequestMethod.PUT)
+	public ResponseEntity<Movie> updateMovie(@RequestBody Movie movie){
+		if(user.isAdmin()){
+		serviceDawFun.setMovie(movie);
+		}
 		return new ResponseEntity<>(movie, HttpStatus.CREATED);
 	}
 	
@@ -500,6 +519,14 @@ public class Controller implements CommandLineRunner {
 		return new ResponseEntity<>(activity, HttpStatus.CREATED);
 	}
 	
+	@RequestMapping(value = "/outdoors", method = RequestMethod.PUT)
+	public ResponseEntity<Outdoor_activity> updateOutdoor(@RequestBody Outdoor_activity activity){
+		if(user.isAdmin()){
+			serviceDawFun.setOutdoor(activity);
+		}		
+		return new ResponseEntity<>(activity, HttpStatus.CREATED);
+	}
+	
 
 	@RequestMapping(value = "/outdoors", method = RequestMethod.GET)
 	public List<Outdoor_activity> getOutdoors(){
@@ -525,7 +552,17 @@ public class Controller implements CommandLineRunner {
 	
 	@RequestMapping(value = "/parks", method = RequestMethod.POST)
 	public ResponseEntity<Thepark> addPark(@RequestBody Thepark park){
+		if(user.isAdmin()){
 		serviceDawFun.setPark(park);
+		}
+		return new ResponseEntity<>(park, HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value = "/parks", method = RequestMethod.PUT)
+	public ResponseEntity<Thepark> updatePark(@RequestBody Thepark park){
+		if(user.isAdmin()){
+		serviceDawFun.setPark(park);
+		}
 		return new ResponseEntity<>(park, HttpStatus.CREATED);
 	}
 	
@@ -569,6 +606,13 @@ public class Controller implements CommandLineRunner {
 		}		
 		return new ResponseEntity<>(videogame, HttpStatus.CREATED);
 	}
+	
+	@RequestMapping(value = "/videogames/valorar", method = RequestMethod.PUT)
+	public ResponseEntity<Videogame> valorarVideogame(@RequestBody Videogame videogame){			
+		serviceDawFun.setVideogame(videogame);
+			
+		return new ResponseEntity<>(videogame, HttpStatus.CREATED);
+	}
 		
 	
 
@@ -603,6 +647,14 @@ public class Controller implements CommandLineRunner {
 				serviceDawFun.setLocal(local);
 			}		
 			return new ResponseEntity<>(local, HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value = "/locals", method = RequestMethod.PUT)
+	public ResponseEntity<Local> updateLocal(@RequestBody Local local){			
+		if(user.isAdmin()){
+			serviceDawFun.setLocal(local);
+		}		
+		return new ResponseEntity<>(local, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value = "/locals", method = RequestMethod.GET)
@@ -674,6 +726,11 @@ public class Controller implements CommandLineRunner {
 		
 	}
 	
+	@RequestMapping(value = "/comprobarAdmin", method = RequestMethod.POST) 
+	public @ResponseBody boolean comprobarAdmin(){		
+		return user.isAdmin();		
+		
+	}
 	
 	
 	
