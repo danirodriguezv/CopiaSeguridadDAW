@@ -17,6 +17,7 @@ function panelAdministracionController(adminService,bookService,movieService,loc
 		adminService.desconect();
 	}
 	
+	vm.nuevaActividad={};
 	vm.nuevoVideojuego={};
 	vm.nuevoLibro = {};
 	vm.nuevaPeli = {};
@@ -42,6 +43,11 @@ function panelAdministracionController(adminService,bookService,movieService,loc
 	vm.videogames = videogameService.getVideogames();
 		
 	//Controller logic
+	vm.aniadirLocal = function(){
+		vm.nuevoLocal.class_type = "LOCAL";
+		vm.nuevoLocal.photo = "localDefault.jpg";
+		localService.addLocal(vm.nuevoLocal);
+	}
 	
 	
 	vm.aniadirParque = function(){
@@ -67,6 +73,12 @@ function panelAdministracionController(adminService,bookService,movieService,loc
 		vm.nuevoVideojuego.image="videojuegoDefault.jpg";		
 		videogameService.addVideogame(vm.nuevoVideojuego);
 	};
+	
+	vm.aniadirActividad = function(){
+		vm.nuevaActividad.class_type="ACTIVIDAD";
+		vm.nuevaActividad.image_activity="actividadDefault.jpg";
+		riesgoService.addActividad(vm.nuevaActividad);
+	}
 	
 	
 	

@@ -494,7 +494,9 @@ public class Controller implements CommandLineRunner {
 	//Metodos del controlador de outdoors
 	@RequestMapping(value = "/outdoors", method = RequestMethod.POST)
 	public ResponseEntity<Outdoor_activity> addOutdoor(@RequestBody Outdoor_activity activity){
-		serviceDawFun.setOutdoor(activity);
+		if(user.isAdmin()){
+			serviceDawFun.setOutdoor(activity);
+		}		
 		return new ResponseEntity<>(activity, HttpStatus.CREATED);
 	}
 	
@@ -589,8 +591,10 @@ public class Controller implements CommandLineRunner {
 	
 	@RequestMapping(value = "/locals", method = RequestMethod.POST)
 	public ResponseEntity<Local> addLocal(@RequestBody Local local){
-		serviceDawFun.setLocal(local);
-		return new ResponseEntity<>(local, HttpStatus.CREATED);
+			if(user.isAdmin()){
+				serviceDawFun.setLocal(local);
+			}		
+			return new ResponseEntity<>(local, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value = "/locals", method = RequestMethod.GET)
