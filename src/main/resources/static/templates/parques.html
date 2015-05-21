@@ -34,7 +34,7 @@
 			        	<li><a class="dropdown-link" ng-click="vm.busqueda('Todos')">TODOS</a></li> 
 			        	<li class="dropdown-divider"></li>
 			            <li><a class="dropdown-link" ng-click="vm.busqueda('Acuaticos')">Acuaticos</a></li>
-			            <li><a class="dropdown-link" ng-click="vm.busqueda('Tematicos')">Tematicos</a></li> 
+			            <li><a class="dropdown-link" ng-click="vm.busqueda('Tematico')">Tematico</a></li> 
 			            <li><a class="dropdown-link" ng-click="vm.busqueda('Atracciones')">Atracciones</a></li>
 			            <li><a class="dropdown-link" ng-click="vm.busqueda('Safaris')">Safaris</a></li>
 			            <li><a class="dropdown-link" ng-click="vm.busqueda('Zoologicos')">Zoologicos</a></li>
@@ -88,6 +88,14 @@
 			    	<div class="p">
 			    		<img ng-src="/images/{{vm.imagenSelec}}" width=100% height=100%>
 			    	</div>
+			    	<div id="positivo" class="p+ tc-green-200 tituloTablaAdmin" ng-hide="{{vm.recomendado}} < 0" >
+				    	<img ng-src="/images/recomendado.png" width=200 height=200 style="margin:auto;">
+				    		<span class="fs-subhead display-block ">RECOMENDADO</span>		    		
+			    	</div>
+			    	<div id="negativo" class="p+ tc-red-300 tituloTablaAdmin"  ng-hide="{{vm.recomendado}} >= 0">	
+			    		<img ng-src="/images/norecomendado.png" width=200 height=200 style="margin:auto;">	    		
+				    		<span class="fs-subhead display-block">NO RECOMENDADO</span>		    		
+			    	</div>
 			    </div>
 			    <div flex-item="8" flex-item-order="2">
 			    	<div class="p+ bgc-blue-grey-300">
@@ -112,7 +120,7 @@
 			    	</div>
 			    	<div class="p+ bgc-red-300">
 			    		<span class="fs-subhead display-block">Precio entrada</span>
-			    		<span class="fs-display-0.5 display-block">{{vm.priceSelec}}</span>
+			    		<span class="fs-display-0.5 display-block">{{vm.priceSelec}} euros</span>
 			    	</div>
 			    	<div class="p+ bgc-red-300">
 			    		<span class="fs-subhead display-block">Cheque descuento</span>
@@ -124,7 +132,9 @@
 	    </div>
 	
 	    <div class="dialog__actions">
-	        <button class="btn btn--m btn--black btn--flat" lx-ripple lx-dialog-close>Cerrar</button>
+	    	<button class="btn btn--m btn--black btn--flat botonCategoria bVerde" ng-click="vm.votarPositivo()" lx-ripple lx-dialog-close>Recomendado <i class="mdi mdi-thumb-up sobreIcono" style="margin-top:5px;"></i></button>
+    		<button class="btn btn--m btn--black btn--flat botonCategoria bRojo" ng-click="vm.votarNegativo()" lx-ripple lx-dialog-close>No Recomendado <i class="mdi mdi-thumb-down sobreIcono" style="margin-top:5px;"></i></button>
+	        <button class="btn btn--m btn--black btn--flat botonCategoria" lx-ripple lx-dialog-close>Cerrar</button>
 	    </div>
 	</lx-dialog>
 </div>

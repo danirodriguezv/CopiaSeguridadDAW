@@ -25,6 +25,52 @@
 	
 }
 
+.fotoPersonal{
+	border-radius : 50%;
+}
+
+.fotoPersonal:hover{
+	-webkit-transform: scale(1.5);
+	-webkit-transition-duration: 300ms;
+    -webkit-transition-timing-function: ease-out;
+    transform: scale(1.5);
+    
+}
+
+.texto{
+	padding-left : 4%;
+}
+
+.textete{
+	padding-left : 10%;
+	
+	-webkit-transition:all 0.3s ;
+	-moz-transition:all 0.3s ;
+	-o-transition:all 0.3s ;
+	transition:all 0.3s ; 
+}
+.textete2{
+	padding-left : 20%;
+		-webkit-transition:all 0.3s ;
+	-moz-transition:all 0.3s ;
+	-o-transition:all 0.3s ;
+	transition:all 0.3s ;
+}
+.textete3{
+	padding-left : 30%;
+		-webkit-transition:all 0.3s ;
+	-moz-transition:all 0.3s ;
+	-o-transition:all 0.3s ;
+	transition:all 0.3s ;
+}
+.textete4{
+	padding-left : 40%;
+		-webkit-transition:all 0.3s ;
+	-moz-transition:all 0.3s ;
+	-o-transition:all 0.3s ;
+	transition:all 0.3s ;
+}
+
 .cartitas{
 	width : 100%;
 	height : 50%;
@@ -166,4 +212,84 @@
 .botonAniadir:hover{
 	background-color:#e7fa01;
 	color:#474747;
+}
+
+.bVerde{
+	background-color:#95c602;
+	font-weight:bold;
+}
+
+.bVerde:hover{
+	background-color:#7ba402;
+}
+
+.bRojo{
+	background-color:#ff3e3e;
+	font-weight:bold;
+}
+
+.bRojo:hover{
+	background-color:#a60000;
+}
+
+.textete:hover{
+	
+	background-color:rgba(147, 147, 147, 0.19);
+}
+.textete:hover .fotoPersonal{
+	-webkit-transform: scale(1.5);
+	-webkit-transition-duration: 300ms;
+    -webkit-transition-timing-function: ease-out;
+    transform: scale(1.5);    
+}
+
+.textete2:hover{
+	background-color:rgba(109, 151, 159, 0.18);
+}
+
+.textete2:hover .fotoPersonal{
+	-webkit-transform: scale(1.5);
+	-webkit-transition-duration: 300ms;
+    -webkit-transition-timing-function: ease-out;
+    transform: scale(1.5);    
+}
+
+
+.textete3:hover{
+	background-color:rgba(55, 137, 152, 0.18);
+}
+
+.textete3:hover .fotoPersonal{
+	-webkit-transform: scale(1.5);
+	-webkit-transition-duration: 300ms;
+    -webkit-transition-timing-function: ease-out;
+    transform: scale(1.5);    
+}
+
+.textete4:hover{
+	background-color:rgba(33, 172, 198, 0.18);
+}
+
+.textete4:hover .fotoPersonal{
+	-webkit-transform: scale(1.5);
+	-webkit-transition-duration: 300ms;
+    -webkit-transition-timing-function: ease-out;
+    transform: scale(1.5);    
+}
+
+.footer{
+	background: #3f51b5;
+	 height:25px;
+	 position: fixed;
+	 bottom: 0;
+	 width: 100%;
+	 color:white;
+	 font-size:12px;
+	 padding-top:4px;
+	 text-align:center;
+	-webkit-box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.35);
+	-moz-box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.35);
+	box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.35);
+
+	text-shadow: -1px -2px 1px black, 1px 2px 1px black, -1px 2px 1px black, 1px -2px 1px black;
 }

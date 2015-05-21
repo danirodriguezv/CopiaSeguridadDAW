@@ -57,6 +57,9 @@ function panelAdministracionController(adminService,bookService,movieService,loc
 	vm.aniadirLocal = function(){
 		vm.nuevoLocal.class_type = "LOCAL";
 		vm.nuevoLocal.photo = "localDefault.jpg";
+	
+	
+	
 		localService.addLocal(vm.nuevoLocal);
 	}
 	
@@ -64,6 +67,9 @@ function panelAdministracionController(adminService,bookService,movieService,loc
 	vm.aniadirParque = function(){
 		vm.nuevoParque.class_type="PARQUE TEMATICO";
 		vm.nuevoParque.image_park="parqueDefault.jpg";
+		
+		
+		
 		parkService.addPark(vm.nuevoParque);
 	}
 	
